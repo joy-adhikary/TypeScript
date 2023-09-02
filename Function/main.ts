@@ -57,10 +57,10 @@ console.log(add_string("joy", " adhikary"))
 
 // Arrow function 
 
-// syntam ===>> let function_name = ( perameter : permeter_type ) : return_type => {  function er main kaj }
+// syntax ===>> const function_name = ( perameter : permeter_type ) : return_type => {  function er main kaj }
 
-let joy5 =(a:string,b:string,c:string):string=>{
+const joy5 = (a: string, b: string, c: string): string => {
     return a + b + c;
 }
-console.log(joy5("joy", " adhikary"," Associate_software_engineer"))
+console.log(joy5("joy", " adhikary", " Associate_software_engineer"))
 
