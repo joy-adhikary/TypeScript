@@ -29,7 +29,7 @@ joy = {
 
 (joy as { aktaMethod: Function }).aktaMethod(); // 1st a joy ke obj a convirt korsi then er properti ke call
 
-//joy.aktaMethod(); eita run korbe nah karon type unknown
+//joy.aktaMethod();// eita run korbe nah karon type unknown
 
 
 let joy2: unknown = 333;
