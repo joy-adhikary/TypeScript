@@ -5,7 +5,7 @@
 
 // ? difference between primitive and non-primitive types : 
 
-//  Primitive types : akta location a akta matro value rakhty parbo. This data type is predefined means build in type . 
+//  Primitive types : akta location a akta matro value rakhty parbo. This data type is predefined means build in type . Primitive data type gula jkn value assign kora hoi tkn seita direct value assign kore . 
 
 //  Non-primitive types: akta location a onk value rakhty parbo. Data type are not predefined means those are made by primitive data types.
 
@@ -13,6 +13,8 @@
 //!                                                 0. Fact with some advanced Utility types : 
 
 //? Using Omit for dynamically remove types
+
+// Omit syntax : Omit<Type, Keys ( kon kon property gulo ke remove korte chai )>
 
 interface Admin {
     name: string;
@@ -33,6 +35,8 @@ const Joy: User = {
 }
 
 //? Using Pick for dynamically add types
+
+// Pick syntax : Pick<Type, Keys ( kon kon property gulo ke rakhte chai )>
 
 // lets say amr type onk gula kintu amr lagbe 3-4 ta matro , to sei jonno ami omit use nah kore pick use  korbo 
 

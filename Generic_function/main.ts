@@ -42,7 +42,7 @@ const MargeObj = <X, Y, T>(Obj1: X, Obj2: Y): T => {
 };
 
 const obj1 = { a: 1, b: 2 },
-    obj2 = { b: 3, c: 4 };
+    obj2 = { b: 3, c: 4, e: "joy" };
 
 console.log("Using multiple dynamic types :", MargeObj(obj1, obj2));
 
@@ -50,14 +50,7 @@ console.log("Using multiple dynamic types :", MargeObj(obj1, obj2));
 // MargeObj(obj1,"string")  //? this will not throw any kind of error but it is an error , for that reason we use extende
 
 //  extend mane oitai hoite hobe or oi property thaktei hobe T er majhe
-const MargeObj1 = <
-    X extends object,
-    Y extends object, 
-    T
->(
-    Obj1: X,
-    Obj2: Y
-): T => {
+const MargeObj1 = <X extends object, Y extends object, T>(Obj1: X, Obj2: Y): T => {
     return {
         ...Obj1,
         ...Obj2,
