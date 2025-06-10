@@ -252,3 +252,26 @@ function nestedScopeTest() {
     console.log(functionVariable); //* will print 1
     // console.log(blockVariable); //* this will throw an error
 }
+
+
+//!                                                           5. Conditional types and unions
+
+// ? union of string | ull | undefined is a type that can be used to represent a value that can be either a string, null, or undefined.So what will be the type of this CondUnionType
+type NullableString = string | null | undefined
+
+type NonNullables<T> = T extends null | undefined ? never : T
+
+type CondUnionType = NonNullables<NullableString>
+
+// this will return string here is the reason : 
+
+
+type stringLoop = string extends null | undefined ? never : string // string
+
+type nullLoop = null extends null | undefined ? never : null // never
+
+type undefinedLoop = undefined extends null | undefined ? never : undefined // never
+
+type ReturnUnion = stringLoop | nullLoop | undefinedLoop // string
+
+// union return the solid type that is string here
