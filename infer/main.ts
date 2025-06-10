@@ -29,7 +29,7 @@ type SNvaluePair = KeyValuePair<"string : number">; // valuePair type is { key: 
 
 
 
-type CustomKeyValue < T, U > = U extends string ? {
+type CustomKeyValue<T, U> = U extends string ? {
     key: T;
     value: U;
 } : never;
