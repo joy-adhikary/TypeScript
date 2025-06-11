@@ -275,3 +275,96 @@ type undefinedLoop = undefined extends null | undefined ? never : undefined // n
 type ReturnUnion = stringLoop | nullLoop | undefinedLoop // string
 
 // union return the solid type that is string here
+
+
+//!                                                           6. Change the existing type with the help of utility types
+
+
+type agerType = {
+    name : string,
+    age : number
+}
+
+type nutunType1 <T> = {
+    // ? T object er sob gula key borabor loop korbe then t[k] er value set kore dibe. THAT means jah cilo tai e. 
+    // ? eijaigai T[k] mane holo T object er k key er type for batter under standing comment out this line 
+    // [k in keyof T] : k
+    //  ei jaigai key kei as a type hisabe set kore dicche .
+    [k in keyof T] : T[k]
+}
+
+const changedType : nutunType1<agerType> = {
+    name: 'joy',
+    age: 26
+}
+
+// ?                set 2 
+type nutunType2 <T> = {
+    [k in keyof T] : T[k] extends string ? number : T[k] // ? jodi T[k] er type string hoi tahole number set korbe otherwise T[k] er type eita set korbe
+}
+
+const changedType2 : nutunType2<agerType> = {
+    // name: 'joy', // error  karon already ami name er type number a change kore felsi 
+    name : 55,
+    age: 26
+}
+
+
+// ?                set 3
+
+type nutunType3 <T> = {
+    //?  removing read only object.
+    -readonly [k in keyof T] : T[k]
+}
+
+type agerType1 = {
+    readonly name : string,
+    age : number
+}
+
+const readOnlyChangedType : nutunType3<agerType1> = {
+    name: 'joy',
+    age: 26
+}
+
+readOnlyChangedType.name = "joy adhikary"
+
+
+// ?                set 4 
+
+type nutunType4 <T> = {
+    //?  adding optional type.
+    [k in keyof T] ?: T[k]
+}
+
+const allOptionalType : nutunType4<agerType> = {
+    age: 26
+    // name removed as it is optional now 
+}
+
+
+// ?                set 5 
+
+type nutunType5 <T> = {
+    //? changing the key name.
+    [k in keyof T as `nutun${Capitalize<k & string>}`] : T[k]
+}
+
+const nameChangedType : nutunType5<agerType> = {
+    nutunName: "joy adhikary",
+    nutunAge: 26
+}
+
+
+// ?                set 6
+
+
+type nutunType6 <T> = {
+    //? changing the key into function 
+    [k in keyof T as `get${Capitalize<k & string>}`] : () => T[k]
+}
+
+const nameChangedType1 : nutunType6<agerType> = {
+    getName: () => "joy adhikary",
+    getAge: () => 25
+}
