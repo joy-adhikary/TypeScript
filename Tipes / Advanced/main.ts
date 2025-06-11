@@ -279,6 +279,8 @@ type ReturnUnion = stringLoop | nullLoop | undefinedLoop // string
 
 //!                                                           6. Change the existing type with the help of utility types
 
+// object er majhe loop korar syntax ta hocche 
+// [ keyName in keyof objectName ] eita kind of amn vabe for (keyName=0; keyName < T.size(); keyName++) 
 
 type agerType = {
     name : string,
